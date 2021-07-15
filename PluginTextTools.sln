@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTextTools", "PluginTextTools\PluginTextTools.csproj", "{458B5824-E468-4ECA-9F3E-70B0CF56B50B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTextTools.Differ", "PluginTextTools.Differ\PluginTextTools.Differ.csproj", "{58B0CF3D-31DE-4118-8FB9-318000E79D38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTextTools.Differ.Test", "PluginTextTools.Differ.Test\PluginTextTools.Differ.Test.csproj", "{99912A28-AFBB-4CAB-BDFB-07AD35AEFC55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTextTools.Generators", "PluginTextTools.Generators\PluginTextTools.Generators.csproj", "{04BA7141-AD18-497B-9CA8-2553A149884E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{458B5824-E468-4ECA-9F3E-70B0CF56B50B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{458B5824-E468-4ECA-9F3E-70B0CF56B50B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{458B5824-E468-4ECA-9F3E-70B0CF56B50B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{458B5824-E468-4ECA-9F3E-70B0CF56B50B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B0CF3D-31DE-4118-8FB9-318000E79D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B0CF3D-31DE-4118-8FB9-318000E79D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B0CF3D-31DE-4118-8FB9-318000E79D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B0CF3D-31DE-4118-8FB9-318000E79D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99912A28-AFBB-4CAB-BDFB-07AD35AEFC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99912A28-AFBB-4CAB-BDFB-07AD35AEFC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99912A28-AFBB-4CAB-BDFB-07AD35AEFC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99912A28-AFBB-4CAB-BDFB-07AD35AEFC55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04BA7141-AD18-497B-9CA8-2553A149884E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04BA7141-AD18-497B-9CA8-2553A149884E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04BA7141-AD18-497B-9CA8-2553A149884E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04BA7141-AD18-497B-9CA8-2553A149884E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
