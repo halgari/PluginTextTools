@@ -56,9 +56,22 @@ namespace PluginTextTools.Generators
                     .Distinct(d => d.Name);
                 foreach (var property in props)
                 {
-                    if (property.PropertyType == typeof(ILoquiRegistration)) continue;
+                    var propType = property.PropertyType;
+                    if (propType == typeof(ILoquiRegistration)) continue;
                     if (property.GetIndexParameters().Length > 0) continue;
-                    if (property.PropertyType.InheritsFromType(typeof(IReadOnlyList<>), out var found))
+
+
+                    if (propType.IsGenericType)
+                    {
+                        var firstArg = propType.GetGenericArguments()[0];
+                        if (firstArg.InheritsFrom(typeof(ILoquiObject)))
+                        {
+                            if (!types.Contains(firstArg))
+                                types.Add(firstArg);
+                        }
+                    }
+                    
+                    if (propType.InheritsFromType(typeof(IReadOnlyList<>), out var found))
                     {
                         var firstArg = found.GetGenericArguments()[0];
                         if (firstArg.InheritsFrom(typeof(ILoquiObject)))
@@ -68,15 +81,15 @@ namespace PluginTextTools.Generators
                         }
                         file.Code($"(result, o) = ((Result, object?))differ.Diff(a?.{property.Name}, b?.{property.Name});");
                     }
-                    else if (property.PropertyType.InheritsFrom(typeof(IFormLinkGetter<>)))
+                    else if (propType.InheritsFrom(typeof(IFormLinkGetter<>)))
                     {
                         file.Code($"(result, o) = ((Result, object?))differ.Diff(a?.{property.Name}, b?.{property.Name});");
                     }
-                    else if (property.PropertyType.InheritsFrom(typeof(ILoquiObject)))
+                    else if (propType.InheritsFrom(typeof(ILoquiObject)))
                     {
                         file.Code($"(result, o) = ((Result, object?))differ.Diff(a?.{property.Name}, b?.{property.Name});");
-                        if (!types.Contains(property.PropertyType))
-                            types.Add(property.PropertyType);
+                        if (!types.Contains(propType))
+                            types.Add(propType);
                     }
                     else
                     {

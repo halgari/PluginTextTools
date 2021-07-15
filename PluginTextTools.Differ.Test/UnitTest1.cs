@@ -19,12 +19,6 @@ namespace PluginTextTools.Differ.Test
         public void Test1()
         {
             
-            var form = new FormKey(new ModKey("Skyrim", ModType.Master), 0x03133b);
-            
-            
-            
-            var load = LoadSeLoadOrder();
-
             var mods = LoadSeLoadOrder().Select(s => s.Value.Mod).ToList();
             var cache = new ImmutableLoadOrderLinkCache(mods, GameCategory.Skyrim, LinkCachePreferences.Default);
             var update = mods.First(m => m.ModKey.Name == "Update");
@@ -38,7 +32,7 @@ namespace PluginTextTools.Differ.Test
                 var records = rec.ResolveAll(cache).ToArray();
                 dynamic differ = new Differ();
                //if (records.Length == 1) continue;
-                var (result, o) = ((Differ.Result, object?)) differ.Diff((dynamic?)records.Skip(1).FirstOrDefault(), (dynamic?)records.First());
+                var (result, o) = ((Result, object?)) differ.Diff((dynamic?)records.Skip(1).FirstOrDefault(), (dynamic?)records.First());
 
 
                 var serializer = new SerializerBuilder()

@@ -9841,6 +9841,20 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["MountCameraOffset"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(ISimpleModelGetter? a, ISimpleModelGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.File, b?.File);
+      if (result is Result.Modified or Result.Added) {ret["File"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["File"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Data, b?.Data);
+      if (result is Result.Modified or Result.Added) {ret["Data"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Data"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IAttackGetter? a, IAttackGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -9853,6 +9867,37 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.AttackEvent, b?.AttackEvent);
       if (result is Result.Modified or Result.Added) {ret["AttackEvent"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["AttackEvent"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IBodyDataGetter? a, IBodyDataGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Index, b?.Index);
+      if (result is Result.Modified or Result.Added) {ret["Index"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Index"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Model, b?.Model);
+      if (result is Result.Modified or Result.Added) {ret["Model"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Model"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IModelGetter? a, IModelGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.AlternateTextures, b?.AlternateTextures);
+      if (result is Result.Modified or Result.Added) {ret["AlternateTextures"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["AlternateTextures"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.File, b?.File);
+      if (result is Result.Modified or Result.Added) {ret["File"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["File"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Data, b?.Data);
+      if (result is Result.Modified or Result.Added) {ret["Data"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Data"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IRaceMovementTypeGetter? a, IRaceMovementTypeGetter? b) {
@@ -9928,6 +9973,38 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["W"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IHeadDataGetter? a, IHeadDataGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.HeadParts, b?.HeadParts);
+      if (result is Result.Modified or Result.Added) {ret["HeadParts"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["HeadParts"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.AvailableMorphs, b?.AvailableMorphs);
+      if (result is Result.Modified or Result.Added) {ret["AvailableMorphs"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["AvailableMorphs"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.RacePresets, b?.RacePresets);
+      if (result is Result.Modified or Result.Added) {ret["RacePresets"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["RacePresets"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.AvailableHairColors, b?.AvailableHairColors);
+      if (result is Result.Modified or Result.Added) {ret["AvailableHairColors"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["AvailableHairColors"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FaceDetails, b?.FaceDetails);
+      if (result is Result.Modified or Result.Added) {ret["FaceDetails"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FaceDetails"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.DefaultFaceTexture, b?.DefaultFaceTexture);
+      if (result is Result.Modified or Result.Added) {ret["DefaultFaceTexture"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["DefaultFaceTexture"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.TintMasks, b?.TintMasks);
+      if (result is Result.Modified or Result.Added) {ret["TintMasks"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["TintMasks"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Model, b?.Model);
+      if (result is Result.Modified or Result.Added) {ret["Model"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Model"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IObjectBoundsGetter? a, IObjectBoundsGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -9957,23 +10034,6 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Scripts, b?.Scripts);
       if (result is Result.Modified or Result.Added) {ret["Scripts"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Scripts"] = DELETED; thisResult = Result.Modified;}
-      return (thisResult, ret); 
-      }
-    public (Result, object?) Diff(IModelGetter? a, IModelGetter? b) {
-      dynamic differ = this;
-      Result result = Result.NoChange;
-      var ret = new Dictionary<string, object?>();
-      object? o = null;
-      Result thisResult = Result.NoChange;
-      (result, o) = ((Result, object?))differ.Diff(a?.AlternateTextures, b?.AlternateTextures);
-      if (result is Result.Modified or Result.Added) {ret["AlternateTextures"] = o; thisResult = Result.Modified;}
-      if (result == Result.Deleted) {ret["AlternateTextures"] = DELETED; thisResult = Result.Modified;}
-      (result, o) = ((Result, object?))differ.Diff(a?.File, b?.File);
-      if (result is Result.Modified or Result.Added) {ret["File"] = o; thisResult = Result.Modified;}
-      if (result == Result.Deleted) {ret["File"] = DELETED; thisResult = Result.Modified;}
-      (result, o) = ((Result, object?))differ.Diff(a?.Data, b?.Data);
-      if (result is Result.Modified or Result.Added) {ret["Data"] = o; thisResult = Result.Modified;}
-      if (result == Result.Deleted) {ret["Data"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IDestructibleGetter? a, IDestructibleGetter? b) {
@@ -10057,6 +10117,52 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.SmallIconFilename, b?.SmallIconFilename);
       if (result is Result.Modified or Result.Added) {ret["SmallIconFilename"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["SmallIconFilename"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IEffectRecordGetter? a, IEffectRecordGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IArmorModelGetter? a, IArmorModelGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Model, b?.Model);
+      if (result is Result.Modified or Result.Added) {ret["Model"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Model"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Icons, b?.Icons);
+      if (result is Result.Modified or Result.Added) {ret["Icons"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Icons"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IBodyPartGetter? a, IBodyPartGetter? b) {
@@ -10346,6 +10452,38 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["FactionRank"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(ILockListGetter? a, ILockListGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IANavigationMeshGetter? a, IANavigationMeshGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -10555,6 +10693,38 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["Data"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IConstructibleGetter? a, IConstructibleGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IDebrisModelGetter? a, IDebrisModelGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -10693,6 +10863,102 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["NEXT"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(ISoundGetter? a, ISoundGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IOwnerGetter? a, IOwnerGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(ISkyrimMajorRecordGetter? a, ISkyrimMajorRecordGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IRelationGetter? a, IRelationGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -10809,6 +11075,38 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Radius, b?.Radius);
       if (result is Result.Modified or Result.Added) {ret["Radius"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Radius"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IHarvestTargetGetter? a, IHarvestTargetGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(ISeasonalIngredientProductionGetter? a, ISeasonalIngredientProductionGetter? b) {
@@ -11085,6 +11383,44 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["Header"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IGlobalGetter? a, IGlobalGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.TypeChar, b?.TypeChar);
+      if (result is Result.Modified or Result.Added) {ret["TypeChar"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["TypeChar"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorFlags, b?.MajorFlags);
+      if (result is Result.Modified or Result.Added) {ret["MajorFlags"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorFlags"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(ILeveledItemEntryGetter? a, ILeveledItemEntryGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -11242,6 +11578,38 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Grid, b?.Grid);
       if (result is Result.Modified or Result.Added) {ret["Grid"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Grid"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IPlacedSimpleGetter? a, IPlacedSimpleGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IMagicEffectArchetypeGetter? a, IMagicEffectArchetypeGetter? b) {
@@ -11551,6 +11919,38 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Fluff, b?.Fluff);
       if (result is Result.Modified or Result.Added) {ret["Fluff"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Fluff"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(INpcSpawnGetter? a, INpcSpawnGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IPerkPlacementGetter? a, IPerkPlacementGetter? b) {
@@ -11928,6 +12328,38 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["End"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(ILocationRecordGetter? a, ILocationRecordGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IEnableParentGetter? a, IEnableParentGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -11946,6 +12378,38 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Unknown, b?.Unknown);
       if (result is Result.Modified or Result.Added) {ret["Unknown"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Unknown"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IEmittanceGetter? a, IEmittanceGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IPlacementGetter? a, IPlacementGetter? b) {
@@ -12122,6 +12586,38 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["Unknown2"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(ILinkedReferenceGetter? a, ILinkedReferenceGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(ILockDataGetter? a, ILockDataGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -12177,6 +12673,38 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Type, b?.Type);
       if (result is Result.Modified or Result.Added) {ret["Type"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Type"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IPlacedThingGetter? a, IPlacedThingGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IQuestAdapterGetter? a, IQuestAdapterGetter? b) {
@@ -12579,6 +13107,47 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["Level3Extra"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IAStoryManagerNodeGetter? a, IAStoryManagerNodeGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Parent, b?.Parent);
+      if (result is Result.Modified or Result.Added) {ret["Parent"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Parent"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.PreviousSibling, b?.PreviousSibling);
+      if (result is Result.Modified or Result.Added) {ret["PreviousSibling"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["PreviousSibling"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Conditions, b?.Conditions);
+      if (result is Result.Modified or Result.Added) {ret["Conditions"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Conditions"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IStoryManagerQuestGetter? a, IStoryManagerQuestGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -12732,6 +13301,29 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Unused4, b?.Unused4);
       if (result is Result.Modified or Result.Added) {ret["Unused4"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Unused4"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(ICloudLayerGetter? a, ICloudLayerGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Enabled, b?.Enabled);
+      if (result is Result.Modified or Result.Added) {ret["Enabled"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Enabled"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.XSpeed, b?.XSpeed);
+      if (result is Result.Modified or Result.Added) {ret["XSpeed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["XSpeed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.YSpeed, b?.YSpeed);
+      if (result is Result.Modified or Result.Added) {ret["YSpeed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["YSpeed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Colors, b?.Colors);
+      if (result is Result.Modified or Result.Added) {ret["Colors"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Colors"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Alphas, b?.Alphas);
+      if (result is Result.Modified or Result.Added) {ret["Alphas"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Alphas"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IWeatherColorGetter? a, IWeatherColorGetter? b) {
@@ -13196,6 +13788,23 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["StaminaMult"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IAlternateTextureGetter? a, IAlternateTextureGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Name, b?.Name);
+      if (result is Result.Modified or Result.Added) {ret["Name"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Name"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.NewTexture, b?.NewTexture);
+      if (result is Result.Modified or Result.Added) {ret["NewTexture"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["NewTexture"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Index, b?.Index);
+      if (result is Result.Modified or Result.Added) {ret["Index"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Index"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(ISpeedOverridesGetter? a, ISpeedOverridesGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -13377,6 +13986,63 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["FLAP"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IHeadPartReferenceGetter? a, IHeadPartReferenceGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Number, b?.Number);
+      if (result is Result.Modified or Result.Added) {ret["Number"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Number"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Head, b?.Head);
+      if (result is Result.Modified or Result.Added) {ret["Head"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Head"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IAvailableMorphsGetter? a, IAvailableMorphsGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Nose, b?.Nose);
+      if (result is Result.Modified or Result.Added) {ret["Nose"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Nose"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Brow, b?.Brow);
+      if (result is Result.Modified or Result.Added) {ret["Brow"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Brow"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Eye, b?.Eye);
+      if (result is Result.Modified or Result.Added) {ret["Eye"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Eye"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Lip, b?.Lip);
+      if (result is Result.Modified or Result.Added) {ret["Lip"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Lip"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(ITintAssetsGetter? a, ITintAssetsGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Index, b?.Index);
+      if (result is Result.Modified or Result.Added) {ret["Index"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Index"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FileName, b?.FileName);
+      if (result is Result.Modified or Result.Added) {ret["FileName"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FileName"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MaskType, b?.MaskType);
+      if (result is Result.Modified or Result.Added) {ret["MaskType"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MaskType"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.PresetDefault, b?.PresetDefault);
+      if (result is Result.Modified or Result.Added) {ret["PresetDefault"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["PresetDefault"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Presets, b?.Presets);
+      if (result is Result.Modified or Result.Added) {ret["Presets"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Presets"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IScriptEntryGetter? a, IScriptEntryGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -13392,23 +14058,6 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Properties, b?.Properties);
       if (result is Result.Modified or Result.Added) {ret["Properties"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Properties"] = DELETED; thisResult = Result.Modified;}
-      return (thisResult, ret); 
-      }
-    public (Result, object?) Diff(IAlternateTextureGetter? a, IAlternateTextureGetter? b) {
-      dynamic differ = this;
-      Result result = Result.NoChange;
-      var ret = new Dictionary<string, object?>();
-      object? o = null;
-      Result thisResult = Result.NoChange;
-      (result, o) = ((Result, object?))differ.Diff(a?.Name, b?.Name);
-      if (result is Result.Modified or Result.Added) {ret["Name"] = o; thisResult = Result.Modified;}
-      if (result == Result.Deleted) {ret["Name"] = DELETED; thisResult = Result.Modified;}
-      (result, o) = ((Result, object?))differ.Diff(a?.NewTexture, b?.NewTexture);
-      if (result is Result.Modified or Result.Added) {ret["NewTexture"] = o; thisResult = Result.Modified;}
-      if (result == Result.Deleted) {ret["NewTexture"] = DELETED; thisResult = Result.Modified;}
-      (result, o) = ((Result, object?))differ.Diff(a?.Index, b?.Index);
-      if (result is Result.Modified or Result.Added) {ret["Index"] = o; thisResult = Result.Modified;}
-      if (result == Result.Deleted) {ret["Index"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IDestructableDataGetter? a, IDestructableDataGetter? b) {
@@ -13554,6 +14203,38 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["OnEnd"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IRelatableGetter? a, IRelatableGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IALocationTargetGetter? a, IALocationTargetGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -13677,6 +14358,38 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Unknown2, b?.Unknown2);
       if (result is Result.Modified or Result.Added) {ret["Unknown2"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Unknown2"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IComplexLocationGetter? a, IComplexLocationGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(INavmeshTriangleGetter? a, INavmeshTriangleGetter? b) {
@@ -13880,6 +14593,38 @@ namespace PluginTextTools.Differ {
       Result thisResult = Result.NoChange;
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IKeywordLinkedReferenceGetter? a, IKeywordLinkedReferenceGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IActivateParentGetter? a, IActivateParentGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -14071,6 +14816,38 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["EventData"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IAliasVoiceTypeGetter? a, IAliasVoiceTypeGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IRegionObjectGetter? a, IRegionObjectGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -14210,6 +14987,26 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["BR"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(IWeatherAlphaGetter? a, IWeatherAlphaGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Sunrise, b?.Sunrise);
+      if (result is Result.Modified or Result.Added) {ret["Sunrise"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Sunrise"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Day, b?.Day);
+      if (result is Result.Modified or Result.Added) {ret["Day"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Day"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Sunset, b?.Sunset);
+      if (result is Result.Modified or Result.Added) {ret["Sunset"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Sunset"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Night, b?.Night);
+      if (result is Result.Modified or Result.Added) {ret["Night"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Night"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IWorldspaceReferenceGetter? a, IWorldspaceReferenceGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -14304,6 +15101,66 @@ namespace PluginTextTools.Differ {
       if (result == Result.Deleted) {ret["Conditions"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
+    public (Result, object?) Diff(ISpellRecordGetter? a, ISpellRecordGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IMorphGetter? a, IMorphGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Data, b?.Data);
+      if (result is Result.Modified or Result.Added) {ret["Data"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Data"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(ITintPresetGetter? a, ITintPresetGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.Color, b?.Color);
+      if (result is Result.Modified or Result.Added) {ret["Color"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Color"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.DefaultValue, b?.DefaultValue);
+      if (result is Result.Modified or Result.Added) {ret["DefaultValue"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["DefaultValue"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Index, b?.Index);
+      if (result is Result.Modified or Result.Added) {ret["Index"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Index"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
     public (Result, object?) Diff(IScriptPropertyGetter? a, IScriptPropertyGetter? b) {
       dynamic differ = this;
       Result result = Result.NoChange;
@@ -14348,6 +15205,38 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.DebrisCount, b?.DebrisCount);
       if (result is Result.Modified or Result.Added) {ret["DebrisCount"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["DebrisCount"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IItemGetter? a, IItemGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IOwnerTargetGetter? a, IOwnerTargetGetter? b) {
@@ -14396,6 +15285,38 @@ namespace PluginTextTools.Differ {
       (result, o) = ((Result, object?))differ.Diff(a?.Flags, b?.Flags);
       if (result is Result.Modified or Result.Added) {ret["Flags"] = o; thisResult = Result.Modified;}
       if (result == Result.Deleted) {ret["Flags"] = DELETED; thisResult = Result.Modified;}
+      return (thisResult, ret); 
+      }
+    public (Result, object?) Diff(IRegionTargetGetter? a, IRegionTargetGetter? b) {
+      dynamic differ = this;
+      Result result = Result.NoChange;
+      var ret = new Dictionary<string, object?>();
+      object? o = null;
+      Result thisResult = Result.NoChange;
+      (result, o) = ((Result, object?))differ.Diff(a?.FormVersion, b?.FormVersion);
+      if (result is Result.Modified or Result.Added) {ret["FormVersion"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormVersion"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.Version2, b?.Version2);
+      if (result is Result.Modified or Result.Added) {ret["Version2"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["Version2"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.MajorRecordFlagsRaw, b?.MajorRecordFlagsRaw);
+      if (result is Result.Modified or Result.Added) {ret["MajorRecordFlagsRaw"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["MajorRecordFlagsRaw"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.FormKey, b?.FormKey);
+      if (result is Result.Modified or Result.Added) {ret["FormKey"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["FormKey"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.VersionControl, b?.VersionControl);
+      if (result is Result.Modified or Result.Added) {ret["VersionControl"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["VersionControl"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.EditorID, b?.EditorID);
+      if (result is Result.Modified or Result.Added) {ret["EditorID"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["EditorID"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsCompressed, b?.IsCompressed);
+      if (result is Result.Modified or Result.Added) {ret["IsCompressed"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsCompressed"] = DELETED; thisResult = Result.Modified;}
+      (result, o) = ((Result, object?))differ.Diff(a?.IsDeleted, b?.IsDeleted);
+      if (result is Result.Modified or Result.Added) {ret["IsDeleted"] = o; thisResult = Result.Modified;}
+      if (result == Result.Deleted) {ret["IsDeleted"] = DELETED; thisResult = Result.Modified;}
       return (thisResult, ret); 
       }
     public (Result, object?) Diff(IScenePhaseFragmentGetter? a, IScenePhaseFragmentGetter? b) {

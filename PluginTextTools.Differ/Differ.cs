@@ -6,20 +6,22 @@ using System.Linq;
 using System.Reflection;
 using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Plugins.Records;
+using Noggog;
 
 namespace PluginTextTools.Differ
 {
+    public enum Result
+    {
+        NoChange,
+        Modified,
+        Added,
+        Deleted
+    }
     public partial class Differ
     {
         public const string INHERIT = "@@inherit@@";
         public const string DELETED = "@@deleted";
-        public enum Result
-        {
-            NoChange,
-            Modified,
-            Added,
-            Deleted
-        }
+
 
         /*
         public (Result, object?) Diff<TVal>(TVal[]? a, TVal[]? b)
@@ -100,13 +102,13 @@ namespace PluginTextTools.Differ
                 return (Result.Deleted, null);
             }
 
-            if (AreEqual(a!, b!))
+            if (((dynamic)this).AreEqual((dynamic)a!, (dynamic)b!))
             {
                 return (Result.NoChange, null);
             }
             else
             {
-                return (Result.Modified, ToYAML((dynamic?)b));
+                return (Result.Modified, ((dynamic)this).ToYAML((dynamic?)b));
             }
         }
 
@@ -114,22 +116,52 @@ namespace PluginTextTools.Differ
         {
             return Equals(a, b);
         }
+        
+        public bool AreEqual(ReadOnlyMemorySlice<byte> a, ReadOnlyMemorySlice<byte> b)
+        {
+            if (a.Length != b.Length) return false;
+            for (var idx = 0; idx < a.Length; idx += 1)
+            {
+                if (a[idx] != b[idx])
+                    return false;
+            }
+            return true;
+        }
 
         public object? ToYAML(object? a)
         {
             return a?.ToString();
         }
+        
+        public object? ToYAML(P2Float a)
+        {
+            return $"{a.X}, {a.Y}";
+        }
+        
+        public object? ToYAML(P3Float a)
+        {
+            return $"{a.X}, {a.Y}, {a.Z}";
+        }
+        public object? ToYAML(P3Int16 a)
+        {
+            return $"{a.X}, {a.Y}, {a.Z}";
+        }
 
         public object? ToYAML(Color a)
         {
-            return $"0x{a.R:x2}{a.G:x2}{a.B:x2}{a.A:x2}";
+            return a.A == 0 ? $"#{a.R:X2}{a.G:X2}{a.B:X2}" : $"#{a.R:X2}{a.G:X2}{a.B:X2}{a.A:X2}";
+        }
+        
+        public object? ToYAML(ReadOnlyMemorySlice<byte> a)
+        {
+            return $"{a.Length} "+Convert.ToBase64String(a);
         }
 
         public (Result, object?) Diff<T>(IFormLinkGetter<T>? a, IFormLinkGetter<T>? b)
             where T : class, IMajorRecordCommonGetter
         {
             if (a == null && b != null)
-                return (Result.Added, ToYAML(b.FormKey));
+                return (Result.Added, ((dynamic)this).ToYAML((dynamic)b.FormKey));
             if (a != null && b == null)
                 return (Result.Deleted, null);
             if (a == null && b == null)
@@ -140,7 +172,7 @@ namespace PluginTextTools.Differ
             }
             if (a.IsNull && !b.IsNull)
             {
-                return (Result.Added, ToYAML(b.FormKey));
+                return (Result.Added, ((dynamic)this).ToYAML((dynamic)b.FormKey));
             }
             if (a.IsNull && !b.IsNull)
             {
@@ -152,7 +184,7 @@ namespace PluginTextTools.Differ
                 return (Result.NoChange, null);
             }
             else
-                return (Result.Modified, ToYAML(b.FormKey));
+                return (Result.Modified, ((dynamic)this).ToYAML((dynamic)b.FormKey));
         }
     }
 }
